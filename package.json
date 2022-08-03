@@ -1,0 +1,28 @@
+{
+  "name": "memorial-garden-demo",
+  "version": "1.0.0",
+  "description": "Demonstration of an app that was created to allow a client to oversee and modify a visual database of their memorial garden",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MorganGray28/memorial-garden-demo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MorganGray28/memorial-garden-demo/issues"
+  },
+  "homepage": "https://github.com/MorganGray28/memorial-garden-demo#readme",
+  "dependencies": {
+    "airtable": "^0.11.4",
+    "body-parser": "^1.20.0",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "express-basic-auth": "^1.2.1",
+    "helmet": "^5.1.1"
+  }
+}
