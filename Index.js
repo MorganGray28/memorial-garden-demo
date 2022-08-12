@@ -13,10 +13,10 @@ Airtable.configure({
     endpointUrl: 'https://api.airtable.com',
     apiKey: process.env.AIRTABLE_API_KEY
 });
-const base = Airtable.base(prcess.env.AIRTABLE_BASE);
+const base = Airtable.base(process.env.AIRTABLE_BASE);
 app.use(cookieParser(process.env.AUTH_RANDOM_KEY));
-app.use(basicAuth({
-  users: { 'guest': 'password' }
+const auth = (basicAuth({
+  users: { 'admin': 'password' }
 }));
 
 
@@ -29,8 +29,31 @@ app.use(express.static(path.join(__dirname, 'client/build')));
 
 // TODO: Finish setting up routes 
 // Routes:
-app.get('/', (req, res) => {
-  res.send('hello world');
+app.get('/', (req,res) =>{
+  res.sendFile(path.join(__dirname+'/client/build/index.html'));
+});
+
+app.get('/authenticate', auth, (req, res) => {
+  const options = {
+      httpOnly: true,
+      signed: true,
+      maxAge: 1000 * 60 * 60 * 24 * 2
+  }
+  if (req.auth.user === 'admin') {
+      res.cookie('name', 'admin', options).send({ screen: 'admin' });
+  }
+});
+
+app.get('/read-cookie', (req, res) => {
+  if (req.signedCookies.name === 'admin') {
+    res.send({ screen: 'admin' });
+  } else {
+    res.send({ screen: 'auth' });
+  }
+});
+
+app.get('/clear-cookie', (req, res) => {
+  res.clearCookie('name').end();
 });
 
 app.listen(PORT, () => {
