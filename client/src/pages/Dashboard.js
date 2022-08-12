@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import SVGWrapper from '../components/SVGWrapper';
 import NavBar from '../components/NavBar';
+import EditActivePlot from '../components/EditActivePlot';
+import ActivePlot from '../components/ActivePlot';
 import axios from 'axios';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
+import Toolbar from '@mui/material/Toolbar';
+import StyledSpinningLoader from '../components/styled/StyledSpinningLoader';
 
 export default function Dashboard(props) {
 
@@ -46,6 +50,30 @@ export default function Dashboard(props) {
     setIsEditing(false);
   }
 
+  function toggleEditing() {
+    setIsEditing(!isEditing);
+  }
+
+  function updatePlot(id, updates) {
+    let newActive;
+    let updatedPlots = plotData.map(plot => {
+      if(plot.airtableId === id) {
+        for(let key in updates) {
+          plot[key] = updates[key]
+        }
+        newActive = plot;
+        return plot;
+      }
+      return plot;
+    });
+    // sort the plots alphabetically by headstone before we call setPlotData
+    setPlotData(updatedPlots);
+    setActivePlot(newActive);
+    setIsEditing(false);
+  }
+
+  const drawerWidth = 300;
+
   return (
     <div>
       <Box sx={{ display: 'flex' }}>
@@ -56,7 +84,7 @@ export default function Dashboard(props) {
         logout={props.logout}
       />
       
-      {/* <Box
+      <Box
         sx={{ flexGrow: 1, p: {xs: 1, sm: 3}, width: { md: `calc(100% - ${drawerWidth}px)` } }}
       >
         <Toolbar />
@@ -72,20 +100,20 @@ export default function Dashboard(props) {
               <Box sx={{width: '100%', height:'100%', display: 'flex', justifyContent:'center', alignItems: 'center', paddingTop:'40px'}}>
                 <StyledSpinningLoader/>
               </Box>
-              :
-              <TabGroup
-                activePlot={activePlot}
-                data={plotData}
-                setActive={makeActivePlot}
-                setHighlighted={makeHighlightedPlot}
-                highlightedPlot={highlightedPlot}
-                plotStatistics={plotStatistics}
-              />
+              : ''
+              // <TabGroup
+              //   activePlot={activePlot}
+              //   data={plotData}
+              //   setActive={makeActivePlot}
+              //   setHighlighted={makeHighlightedPlot}
+              //   highlightedPlot={highlightedPlot}
+              //   plotStatistics={plotStatistics}
+              // />
             }
             
           </Box>
         </Box>
-      </Box> */}
+      </Box>
     </Box>
     </div>
   )

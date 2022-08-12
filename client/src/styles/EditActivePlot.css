@@ -1,0 +1,40 @@
+.ActivePlot--body--content label {
+	padding-right: 5px;
+	height: 40px;
+	margin: 0.5rem 0;
+	font-weight: 400;
+	font-size: 1.2rem;
+}
+
+.ActivePlot--body--content input,
+.ActivePlot--body--content textarea {
+	height: 42px;
+	font-size: 1rem;
+	width: 100%;
+	background-color: #383838;
+	border: none;
+	border-bottom: 1px solid darkgray;
+	color: white;
+}
+
+.ActivePlot--body--content .input-radio {
+	width: 24px;
+	font-size: 16px;
+}
+
+.button-cancel {
+	margin-left: 5%;
+	width: 120px;
+	background-color: rgb(202, 60, 60);
+}
+
+.button-submit {
+	margin-left: 5%;
+	width: 120px;
+	background: rgb(28, 184, 65);
+}
+
+.button-submit:disabled {
+	background-color: rgb(45, 131, 44);
+	color: gray;
+}
