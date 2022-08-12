@@ -33,6 +33,20 @@ app.get('/', (req,res) =>{
   res.sendFile(path.join(__dirname+'/client/build/index.html'));
 });
 
+app.get('/plots', (req, res) => {
+  if(req.signedCookies.name !== 'admin') {
+      res.end();
+  }
+  let results = retrieveAllPlots();
+  results
+      .then(data => {
+          res.send(data);
+      })
+      .catch(err => {
+          console.log(err);
+      });
+});
+
 app.get('/authenticate', auth, (req, res) => {
   const options = {
       httpOnly: true,
@@ -55,6 +69,48 @@ app.get('/read-cookie', (req, res) => {
 app.get('/clear-cookie', (req, res) => {
   res.clearCookie('name').end();
 });
+
+// Get Plot Data
+function retrieveAllPlots() {
+  let allRecords = [];
+  const getPlots = new Promise((resolve, reject) => {
+      base('Table 1').select({
+          // Selecting the first 3 records in Grid view:
+          view: "Grid view",
+          sort: [{field: 'headstone', direction: 'asc'}]
+      }).eachPage(function page(records, fetchNextPage) {
+          // This function (`page`) will get called for each page of records.
+      
+          records.forEach(function(record) {
+              // console.log('Retrieved', record.get('location'));
+              allRecords.push(record);
+          });
+      
+          // To fetch the next page of records, call `fetchNextPage`.
+          // If there are more records, `page` will get called again.
+          // If there are no more records, `done` will get called.
+          fetchNextPage();
+      
+      }, function done(err) {
+          resolve(allRecords);
+          if (err) { reject(err);}
+      });
+  });
+  return getPlots;
+}
+
+function retrievePlot(id, updates) {
+  const plot = new Promise ((resolve, reject) => {
+      base('Table 1').update(id, updates, function(err, record) {
+          if (err) {
+            console.error(err); reject(err);
+          }
+          resolve(record)
+        });
+      });
+
+  return plot;
+}
 
 app.listen(PORT, () => {
   console.log(`Example server running on port ${PORT}`);
