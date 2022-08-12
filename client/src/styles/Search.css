@@ -1,0 +1,132 @@
+.Search {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    color: #CECECE;
+}
+
+.Search-results-container {
+    max-height: 75%;
+
+}
+
+.Search-results {
+    height: 100%;
+    overflow-y: scroll;
+}
+
+.Search--header {
+    max-height: 10%;
+    font-size: 32px;
+    font-weight: 400;
+    text-align: center;
+    border-bottom: 1px solid #525252;
+    padding: 20px 0px;
+    margin: 0;
+}
+
+.Search--form {
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    max-height: 10%;
+    padding: 30px 20px 20px 20px;
+    margin: 0 auto;
+}
+
+.Search--form__icon {
+    position: absolute;
+    margin-left: 3px;
+}
+
+.Search--form__clear {
+    flex-shrink: 0;
+    margin-left: 10px;
+}
+
+.Search--form__clear .circle {
+    fill: #383838;
+    transition: fill .3s ease;
+}
+
+.Search--form__clear:hover .circle {
+    fill: #686868;
+
+}
+
+.Search--input {
+    flex-shrink: 0;
+    padding-left: 38px;
+    font-size: 16px;
+    color: #CECECE;
+    width: 60%;
+    height: 38px;
+    border: none;
+    background-color: #383838;
+    border-bottom: 1px solid darkgray;
+}
+
+.Search--input::placeholder {
+    color: rgb(141, 141, 141);
+}
+
+.Search--select {
+    font-size: 16px;
+    color: #CECECE;
+    height: 38px;
+    border: none;
+    background-color: #383838;
+    border-bottom: 1px solid #CECECE;
+    border-left: 1px solid #CECECE;
+}
+
+.Search ul {
+    margin: 0;
+    padding: 0;
+}
+
+.Search-results-header {
+    max-height: 10%;
+    display: flex;
+    justify-content: space-around;
+    background-color: #383838;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #FCFCFC;
+}
+
+#Search-results::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    background-color: rgb(56, 56, 56);
+}
+
+#Search-results::-webkit-scrollbar
+{
+    width: 11px;
+    background-color: rgb(56, 56, 56);
+}
+
+#Search-results::-webkit-scrollbar-thumb
+{
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: rgb(180, 180, 180);
+}
+
+@media only screen and (max-width: 1250px) {
+    .Search--form * {
+        font-size: 12px;
+    }
+
+    .Search-results-container {
+        font-size: 12px;
+    }
+
+    .Search--form__clear {
+        display: none;
+    }
+}
