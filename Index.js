@@ -47,6 +47,18 @@ app.get('/plots', (req, res) => {
       });
 });
 
+app.post('/plots/edit/:airtableId', (req, res) => {
+  const plotAirtableId = req.params.airtableId;
+  const updates = req.body;
+  let result = retrievePlot(plotAirtableId, updates)
+      .then(data => {
+          res.send(data);
+      })
+      .catch(err => {
+          res.send(err);
+      });
+});
+
 app.get('/authenticate', auth, (req, res) => {
   const options = {
       httpOnly: true,
