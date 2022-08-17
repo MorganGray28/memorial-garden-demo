@@ -1,0 +1,30 @@
+.filledPlot {
+	fill: #494949;
+	stroke: white;
+}
+
+.unfilledPlot {
+	fill: #6fd1ff;
+	stroke: white;
+}
+
+.reservedPlot {
+	fill: rgb(114, 37, 222);
+	stroke: white;
+}
+
+.activePlot {
+	fill: rgb(255, 40, 112);
+	stroke: white;
+	animation: fade 1.2s alternate infinite;
+}
+
+@keyframes fade {
+	0% {
+		fill: rgb(255, 40, 112);
+	}
+
+	100% {
+		fill: rgb(251, 71, 131);
+	}
+}

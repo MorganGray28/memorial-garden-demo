@@ -82,6 +82,7 @@ export default function NavBar(props) {
                     <Search
                         data={props.data}
                         setActive={props.setActive}
+                        currentActive={props.currentActive}
                     />
                 </Drawer>
                 <Drawer

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import SVGWrapper from '../components/SVGWrapper';
 import NavBar from '../components/NavBar';
 import EditActivePlot from '../components/EditActivePlot';
 import ActivePlot from '../components/ActivePlot';
+import TabGroup from '../components/TabGroup';
 import axios from 'axios';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -13,6 +13,7 @@ export default function Dashboard(props) {
 
   const [plotData, setPlotData] = useState([]);
   const [activePlot, setActivePlot] = useState(null);
+  const [highlightedPlot, setHighlightedPlot] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   
@@ -25,6 +26,7 @@ export default function Dashboard(props) {
         const results = data.data.map((plot) => {
           let formattedResults = {
             airtableId: plot.id,
+            id: plot.fields.location,
             location: plot.fields.location,
             plot: plot.fields.plot,
             headstone: plot.fields.headstone,
@@ -54,6 +56,10 @@ export default function Dashboard(props) {
     setIsEditing(!isEditing);
   }
 
+  function makeHighlightedPlot(plot) {
+    setHighlightedPlot(plot);
+  }
+
   function updatePlot(id, updates) {
     let newActive;
     let updatedPlots = plotData.map(plot => {
@@ -77,19 +83,17 @@ export default function Dashboard(props) {
   return (
     <div>
       <Box sx={{ display: 'flex' }}>
-      <CssBaseline />
-      <NavBar
-        data={plotData}
-        setActive={makeActivePlot}
-        logout={props.logout}
-      />
+        <CssBaseline />
+        <NavBar
+          data={plotData}   
+          setActive={makeActivePlot}    
+          logout={props.logout}
+          currentActive={activePlot} 
+        />
       
-      <Box
-        sx={{ flexGrow: 1, p: {xs: 1, sm: 3}, width: { md: `calc(100% - ${drawerWidth}px)` } }}
-      >
+      <Box sx={{ flexGrow: 1, p: {xs: 1, sm: 3}, width: { md: `calc(100% - ${drawerWidth}px)` } }}>
         <Toolbar />
         <Box sx={{backgroundColor: 'rgb(228, 231, 236)', borderRadius:'12px', p: {xs: 1, sm: 2}}}>
-
           {isEditing ? 
             <EditActivePlot toggleEditing={toggleEditing} data={activePlot} updatePlot={updatePlot} logout={props.logout}/> :
             <ActivePlot data={activePlot} isEditing={isEditing} toggleEditing ={toggleEditing} logout={props.logout}/>
@@ -100,17 +104,16 @@ export default function Dashboard(props) {
               <Box sx={{width: '100%', height:'100%', display: 'flex', justifyContent:'center', alignItems: 'center', paddingTop:'40px'}}>
                 <StyledSpinningLoader/>
               </Box>
-              : ''
-              // <TabGroup
-              //   activePlot={activePlot}
-              //   data={plotData}
-              //   setActive={makeActivePlot}
-              //   setHighlighted={makeHighlightedPlot}
-              //   highlightedPlot={highlightedPlot}
-              //   plotStatistics={plotStatistics}
-              // />
-            }
-            
+              :
+              <TabGroup
+                activePlot={activePlot}
+                data={plotData}
+                setActive={makeActivePlot}
+                setHighlighted={makeHighlightedPlot}
+                highlightedPlot={highlightedPlot}
+                // plotStatistics={plotStatistics}
+              />
+            }      
           </Box>
         </Box>
       </Box>

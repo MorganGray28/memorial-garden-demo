@@ -5,7 +5,6 @@ import StyledTextField from '../components/styled/StyledTextField';
 import axios from 'axios';
 import '../styles/EditActivePlot.css';
 
-// TODO: reformat text, inputs, and buttons into mui components
 // FIXME: Add form authentication:
     // can't submit a form with plot filled status that doesn't have corresponding fields
         // example: Interred plot with no 'headstone' field, reserved plot with no 'reserved for' field
@@ -60,8 +59,6 @@ export default function EditActivePlot(props) {
         setIsButtonDisabled(true);
 
         const state = { plot, headstone, reserved, comments, plotFilledStatus };
-        // console.log(state);
-
         // create new object that will eventually be submitted to airtable API
         let updatedFields = {};
         // check to see if state values are different from prop values
@@ -194,73 +191,5 @@ export default function EditActivePlot(props) {
                 </Box>
             </Box>
         </>
-        // <div className="EditActivePlot">
-        //     <h2 className="ActivePlot--header">Selected Plot</h2>
-        //     <button className="button button-logout" onClick={props.logout}>Logout</button>
-        //     <form className="" onSubmit={handleSubmit}>
-        //         <div className="ActivePlot--body">
-        //             <div className="ActivePlot--body--content">
-        //                 <div className="ActivePlot--body__container" id="plot-container">
-        //                     <label htmlFor="plot">Plot:</label>
-        //                     <input onChange={handleChange} name="plot" id="plot" type="text" value={plot} />
-        //                 </div>
-
-        //                 <div className="ActivePlot--body__container">
-        //                     <label htmlFor="headstone">Headstone:</label>
-        //                     <input onChange={handleChange} name="headstone" id="headstone" type="text" value={headstone}/>
-        //                 </div>
-
-        //                 <div className="ActivePlot--body__container">
-        //                     <label htmlFor="reserved">Reserved for:</label>
-        //                     <input onChange={handleChange} name="reserved" id="reserved" type="text" value={reserved}/>
-        //                 </div>
-
-        //                 <div className="ActivePlot--body__container">
-        //                     <label htmlFor="comments">Comments:</label>
-        //                     <textarea onChange={handleChange} name="comments" id="comments" type="textArea" cols={50} value={comments}/>
-        //                 </div>
-        //                 <div className="ActivePlot--body__container">
-        //                     <label htmlFor="plotStatus">Plot Status:</label>
-        //                     <label>
-        //                         <input
-        //                             className="input-radio"
-        //                             onChange={handleChange}
-        //                             name="plotFilledStatus"
-        //                             type="radio"
-        //                             value="available"
-        //                             checked={plotFilledStatus === "available"}
-        //                         />
-        //                         Available
-        //                     </label>
-        //                     <label>
-        //                         <input
-        //                             className="input-radio"
-        //                             onChange={handleChange}
-        //                             name="plotFilledStatus"
-        //                             type="radio"
-        //                             value="reserved"
-        //                             checked={plotFilledStatus === "reserved"}
-        //                         />
-        //                         Reserved
-        //                     </label>
-        //                     <label>
-        //                         <input
-        //                             className="input-radio"
-        //                             onChange={handleChange}
-        //                             name="plotFilledStatus"
-        //                             type="radio"
-        //                             value="interred"
-        //                             checked={plotFilledStatus === "interred"}
-        //                         />
-        //                         Interred
-        //                     </label>     
-        //                 </div>
-        //             </div>
-        //         </div>
-        //         <button className="button button-cancel" onClick={handleClick}>Cancel Edit</button>
-        //         <button className="button button-submit" onClick={handleSubmit} disabled={isButtonDisabled}>Submit</button>
-        //     </form>
-
-        // </div>
     )
 }

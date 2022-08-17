@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Tabs, Tab } from '@mui/material';
-import SVGWrapper from '../SVGWrapper';
+import SVGWrapper from './SVGWrapper';
 import Table from './Table';
 
 export default function TabGroup(props) {

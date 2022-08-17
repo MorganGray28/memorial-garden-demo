@@ -83,7 +83,19 @@ export default function Search(props) {
             <Box>
                 <Box sx={{overflowY:'auto'}}>
                     {filteredSearch.map(plot => {
-                        return <SearchList category={inputState.category} headstone={plot.headstone} plot={plot.plot} location={plot.location} reserved={plot.reserved} id={plot.airtableId} key={plot.airtableId} setActive={setActivePlot} />
+                        return (
+                            <SearchList
+                                category={inputState.category}
+                                headstone={plot.headstone}
+                                plot={plot.plot}
+                                location={plot.location}
+                                reserved={plot.reserved}
+                                id={plot.airtableId}
+                                key={plot.airtableId}
+                                setActive={setActivePlot}
+                                currentActive={props.currentActive}
+                            />
+                        )
                     })}
                 </Box>
             </Box>
