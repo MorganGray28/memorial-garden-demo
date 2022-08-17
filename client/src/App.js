@@ -4,6 +4,18 @@ import Login from './pages/Login';
 import axios from 'axios';
 import { createTheme, ThemeProvider } from '@mui/material';
 
+// TODO: add active state styling for TableList
+// TODO: adjust scaling of the GardenMap 
+// TODO: adjust colors of svg for the sidewalk, statue, font, and maybe the landscaping
+// TODO: change styling of plot state colors
+// TODO: rethink styling of Search List, Search List hamburger icon, and TabGroup selections
+// TODO: add statistics to garden map 
+// TODO: Style Navbar
+// TODO: add logo for favicon, navbar, and login page 
+// TODO: style a custom scrollbar for the search list 
+// TODO: adjust styling of garden map key for different plot states 
+// TODO: mockup a design for a history of last x number of changes made to the database for the tab group 
+
 let theme = createTheme({
   palette: {
     primary: {
