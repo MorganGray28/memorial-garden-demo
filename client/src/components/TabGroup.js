@@ -16,22 +16,22 @@ export default function TabGroup(props) {
                 value={tabValue}
                 onChange={handleChange}
                 centered
-                sx={{'& .MuiTabs-indicator': {backgroundColor: '#6b9fff'}}}
+                sx={{'& .MuiTabs-indicator': {backgroundColor: '#4e86ed'}}}
             >
                 <Tab
                     label="Garden Map"
                     index={0}
                     sx={{
-                        '&.MuiTab-root': { color: 'rgba(101, 120, 157, .9)' },
-                        '&.Mui-selected': {color: '#6b9fff'}
+                        '&.MuiTab-root': { color: '#375793' },
+                        '&.Mui-selected': {color: '#4e86ed'}
                     }}
                 />
                 <Tab
                     label="List"
                     index={1}
                     sx={{
-                        '&.MuiTab-root': { color: 'rgba(101, 120, 157, .9)' },
-                        '&.Mui-selected': {color: '#6b9fff'}
+                        '&.MuiTab-root': { color: '#375793' },
+                        '&.Mui-selected': {color: '#4e86ed'}
                     }}
                 />
             </Tabs>

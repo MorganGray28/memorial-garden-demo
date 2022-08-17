@@ -1,6 +1,7 @@
 import { Box, Typography } from '@mui/material';
 import React from 'react';
 import Plot from './Plot';
+import '../styles/SVGWrapper.css';
 
 export default function SVGWrapper(props) {
     function handleClick(e) {

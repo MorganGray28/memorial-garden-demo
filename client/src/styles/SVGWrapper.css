@@ -1,28 +1,5 @@
-/* .SVGWrapper {
-	margin: 0;
-	width: 100%;
-}
-
-.SVGWrapper svg {
-	width: 100%;
-} */
-
-.key-wrapper {
-	padding-left: 25px;
-	display: flex;
-	flex-direction: column;
-}
-
-.key {
-	display: flex;
-	margin-bottom: 10px;
-}
-
-.key-color {
-	border-radius: 6px;
-	margin-right: 10px;
-	width: 22px;
-	height: 22px;
+.SVGPlots{
+	animation: forwards fadein .4s;
 }
 
 .key-selected {
@@ -38,16 +15,12 @@
 	background-color: slateblue;
 }
 
-/* 
-@media only screen and (max-width: 1420px) {
-	.SVGWrapper {
-		width: 800px;
-		padding-top: 40px;
-	}
-}
+@keyframes fadein {
+    0% {
+			opacity: 0;
+		}
 
-@media only screen and (max-width: 1100px) {
-	.SVGWrapper {
-		width: 750px;
-	}
-} */
+		100% {
+			opacity: 1;
+		}
+}
