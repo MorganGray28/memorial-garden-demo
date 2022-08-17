@@ -15,6 +15,10 @@ import { createTheme, ThemeProvider } from '@mui/material';
 // TODO: style a custom scrollbar for the search list 
 // TODO: adjust styling of garden map key for different plot states 
 // TODO: mockup a design for a history of last x number of changes made to the database for the tab group 
+// TODO: add uppercase transformation for edit active plot inputs for consistency 
+// TODO: adjust styling of Memorial Garden typography in navbar
+// TODO: adjust hovered plot info to display 'available' or 'unassigned' for unassigned plots
+
 
 let theme = createTheme({
   palette: {
