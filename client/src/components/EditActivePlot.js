@@ -79,6 +79,9 @@ export default function EditActivePlot(props) {
 		setIsButtonDisabled(true);
 
 		const state = { plot, headstone, reserved, comments, plotFilledStatus };
+		// change Headstone and Reserved strings to uppercase chars
+		state.headstone = state.headstone.toUpperCase();
+		state.reserved = state.reserved.toUpperCase();
 		// create new object that will eventually be submitted to airtable API
 		let updatedFields = {};
 		// check to see if state values are different from prop values

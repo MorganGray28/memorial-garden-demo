@@ -15,7 +15,6 @@ import { createTheme, ThemeProvider } from '@mui/material';
 // FEATURES:
 // TODO: add logo for favicon, navbar, and login page
 // TODO: mockup a design for a history of last x number of changes made to the database for the tab group
-// TODO: add uppercase transformation for edit active plot inputs for consistency
 
 let theme = createTheme({
 	palette: {
