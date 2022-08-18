@@ -19,6 +19,7 @@ export default function SearchList(props) {
 		<Box
 			p={1}
 			sx={{
+				color: '#4e4e5f',
 				display: 'flex',
 				backgroundColor: backgroundStyle,
 				justifyContent: 'space-between',

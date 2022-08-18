@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Dashboard from './pages/Dashboard';
 import Login from './pages/Login';
 import axios from 'axios';
+import './App.css';
 import { createTheme, ThemeProvider } from '@mui/material';
 
 // STYLING:
@@ -15,6 +16,9 @@ import { createTheme, ThemeProvider } from '@mui/material';
 // FEATURES:
 // TODO: add logo for favicon, navbar, and login page
 // TODO: mockup a design for a history of last x number of changes made to the database for the tab group
+
+// Fixes:
+// FIXME:Search list doesn't sort by alphabetical right after submitting a new plot change
 
 let theme = createTheme({
 	palette: {
