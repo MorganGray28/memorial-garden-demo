@@ -2,11 +2,11 @@
   "name": "memorial-garden-demo",
   "version": "1.0.0",
   "description": "Demonstration of an app that was created to allow a client to oversee and modify a visual database of their memorial garden",
-  "main": "index.js",
+  "main": "Index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
-    "serverWatch": "nodemon server.js",
+    "start": "node Index.js",
+    "serverWatch": "nodemon Index.js",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run serverWatch\" \"npm run client\"",
     "heroku-postbuild": "cd client && npm install && npm run build"
