@@ -5,8 +5,6 @@ import axios from 'axios';
 import { createTheme, ThemeProvider } from '@mui/material';
 
 // STYLING:
-// TODO: adjust plot map key
-// TODO: add active state styling for TableList
 // TODO: adjust scaling of the GardenMap
 // TODO: adjust colors of svg for the sidewalk, statue, font, and maybe the landscaping
 // TODO: change styling of plot state colors
@@ -16,7 +14,6 @@ import { createTheme, ThemeProvider } from '@mui/material';
 // TODO: style a custom scrollbar for the search list
 
 // FEATURES:
-// TODO: add statistics to garden map
 // TODO: add logo for favicon, navbar, and login page
 // TODO: mockup a design for a history of last x number of changes made to the database for the tab group
 // TODO: add uppercase transformation for edit active plot inputs for consistency

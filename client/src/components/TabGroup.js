@@ -22,7 +22,7 @@ export default function TabGroup(props) {
 					label='Garden Map'
 					index={0}
 					sx={{
-						'&.MuiTab-root': { color: '#375793' },
+						'&.MuiTab-root': { color: '#485d83' },
 						'&.Mui-selected': { color: '#4e86ed' },
 					}}
 				/>
@@ -30,7 +30,7 @@ export default function TabGroup(props) {
 					label='List'
 					index={1}
 					sx={{
-						'&.MuiTab-root': { color: '#375793' },
+						'&.MuiTab-root': { color: '#485d83' },
 						'&.Mui-selected': { color: '#4e86ed' },
 					}}
 				/>
