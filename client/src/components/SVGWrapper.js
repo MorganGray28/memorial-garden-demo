@@ -56,8 +56,13 @@ export default function SVGWrapper(props) {
 					<Typography>Location: {props.highlightedPlot.location}</Typography>
 				</>
 			);
-		} else {
-			<Typography>Headstone: N/A</Typography>;
+		} else if (props.highlightedPlot.plotFilledStatus === 'available') {
+			highlightedPlot = (
+				<>
+					<Typography>Plot is available</Typography>
+					<Typography>Location: {props.highlightedPlot.location}</Typography>
+				</>
+			);
 		}
 	} else {
 		highlightedPlot = 'Hover over plot to view headstone';
@@ -72,7 +77,7 @@ export default function SVGWrapper(props) {
 		>
 			<Box sx={{ height: '5px' }}>{highlightedPlot}</Box>
 			<Box
-				className='SVGPlots'
+				className='SVGContainer'
 				sx={{
 					minWidth: { xs: '800px', md: '100%' },
 					overflow: 'auto',
@@ -82,8 +87,7 @@ export default function SVGWrapper(props) {
 			>
 				<svg
 					xmlns='http://www.w3.org/2000/svg'
-					// width="1270"
-					// height="679.47"
+					// width='70%'
 					viewBox='0 0 1270 679.47'
 				>
 					<g id='sidewalk'>
