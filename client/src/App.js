@@ -5,6 +5,8 @@ import axios from 'axios';
 import './App.css';
 import { createTheme, ThemeProvider } from '@mui/material';
 
+// TODO: Deploy demo to heroku
+
 // STYLING:
 // TODO: adjust colors of svg for the sidewalk, statue, font, and maybe the landscaping
 // TODO: change styling of plot state colors
