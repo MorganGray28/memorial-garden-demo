@@ -6,7 +6,14 @@ export default function Key(props) {
 	return (
 		<div>
 			<Box
-				sx={{ paddingLeft: '25px', marginBottom: '10px', position: 'relative' }}
+				sx={{
+					backgroundColor: 'rgba(255,255,255,.05)',
+					padding: '10px',
+					borderRadius: '10px',
+					position: 'absolute',
+					right: '7%',
+					top: '2%',
+				}}
 			>
 				<Box
 					sx={{ display: 'flex', alignItems: 'center', marginBottom: '4px' }}
@@ -15,8 +22,8 @@ export default function Key(props) {
 						sx={{
 							display: 'inline-block',
 							backgroundColor: 'rgb(228, 44, 90)',
-							width: { xs: '14px', lg: '22px' },
-							height: { xs: '14px', lg: '22px' },
+							width: { xs: '14px', lg: '18px' },
+							height: { xs: '14px', lg: '18px' },
 							borderRadius: { xs: '3px', lg: '5px' },
 						}}
 					></Box>
@@ -24,7 +31,7 @@ export default function Key(props) {
 						component='span'
 						display='inline-block'
 						variant='body'
-						sx={{ fontSize: { xs: '12px', lg: '18px' }, paddingLeft: '10px' }}
+						sx={{ fontSize: { xs: '12px', lg: '14px' }, paddingLeft: '10px' }}
 					>
 						Selected
 					</Typography>
@@ -36,8 +43,8 @@ export default function Key(props) {
 						sx={{
 							display: 'inline-block',
 							backgroundColor: '#78d0cb',
-							width: { xs: '14px', lg: '22px' },
-							height: { xs: '14px', lg: '22px' },
+							width: { xs: '14px', lg: '18px' },
+							height: { xs: '14px', lg: '18px' },
 							borderRadius: { xs: '3px', lg: '5px' },
 						}}
 					></Box>
@@ -45,7 +52,7 @@ export default function Key(props) {
 						component='span'
 						display='inline-block'
 						variant='body'
-						sx={{ fontSize: { xs: '12px', lg: '18px' }, paddingLeft: '10px' }}
+						sx={{ fontSize: { xs: '12px', lg: '14px' }, paddingLeft: '10px' }}
 					>
 						Available
 					</Typography>
@@ -53,7 +60,9 @@ export default function Key(props) {
 						component='span'
 						sx={{ paddingLeft: '5px', color: 'rgba(255,255,255, .5)' }}
 					>
-						({props.plotStatistics.available} / {props.plotStatistics.total})
+						{props.plotStatistics.available
+							? `(${props.plotStatistics.available} / ${props.plotStatistics.total})`
+							: `(XX/XX)`}
 					</Typography>
 				</Box>
 				<Box
@@ -63,8 +72,8 @@ export default function Key(props) {
 						sx={{
 							display: 'inline-block',
 							backgroundColor: 'slateblue',
-							width: { xs: '14px', lg: '22px' },
-							height: { xs: '14px', lg: '22px' },
+							width: { xs: '14px', lg: '18px' },
+							height: { xs: '14px', lg: '18px' },
 							borderRadius: { xs: '3px', lg: '5px' },
 						}}
 					></Box>
@@ -72,7 +81,7 @@ export default function Key(props) {
 						component='span'
 						display='inline-block'
 						variant='body'
-						sx={{ fontSize: { xs: '12px', lg: '18px' }, paddingLeft: '10px' }}
+						sx={{ fontSize: { xs: '12px', lg: '14px' }, paddingLeft: '10px' }}
 					>
 						Reserved
 					</Typography>
@@ -80,7 +89,9 @@ export default function Key(props) {
 						component='span'
 						sx={{ paddingLeft: '5px', color: 'rgba(255,255,255, .5)' }}
 					>
-						({props.plotStatistics.reserved} / {props.plotStatistics.total})
+						{props.plotStatistics.reserved
+							? `(${props.plotStatistics.reserved} / ${props.plotStatistics.total})`
+							: `(XX/XX)`}
 					</Typography>
 				</Box>
 				<Box
@@ -90,8 +101,8 @@ export default function Key(props) {
 						sx={{
 							display: 'inline-block',
 							backgroundColor: '#494949',
-							width: { xs: '14px', lg: '22px' },
-							height: { xs: '14px', lg: '22px' },
+							width: { xs: '14px', lg: '18px' },
+							height: { xs: '14px', lg: '18px' },
 							borderRadius: { xs: '3px', lg: '5px' },
 						}}
 					></Box>
@@ -99,7 +110,7 @@ export default function Key(props) {
 						component='span'
 						display='inline-block'
 						variant='body'
-						sx={{ fontSize: { xs: '12px', lg: '18px' }, paddingLeft: '10px' }}
+						sx={{ fontSize: { xs: '12px', lg: '14px' }, paddingLeft: '10px' }}
 					>
 						Interred
 					</Typography>
@@ -107,7 +118,9 @@ export default function Key(props) {
 						component='span'
 						sx={{ paddingLeft: '5px', color: 'rgba(255,255,255, .5)' }}
 					>
-						({props.plotStatistics.interred} / {props.plotStatistics.total})
+						{props.plotStatistics.interred
+							? `(${props.plotStatistics.interred} / ${props.plotStatistics.total})`
+							: `(XX/XX)`}
 					</Typography>
 				</Box>
 			</Box>

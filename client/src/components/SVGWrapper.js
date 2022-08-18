@@ -72,6 +72,7 @@ export default function SVGWrapper(props) {
 		>
 			<Box sx={{ height: '5px' }}>{highlightedPlot}</Box>
 			<Box
+				className='SVGPlots'
 				sx={{
 					minWidth: { xs: '800px', md: '100%' },
 					overflow: 'auto',
@@ -80,7 +81,6 @@ export default function SVGWrapper(props) {
 				}}
 			>
 				<svg
-					className='SVGPlots'
 					xmlns='http://www.w3.org/2000/svg'
 					// width="1270"
 					// height="679.47"
